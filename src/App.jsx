@@ -6,6 +6,9 @@ function App() {
   return (
     <>
     <Logo />
+    <Form/>
+    <PackingList />
+    <Stats />
     </>
   )
 }
@@ -27,7 +30,7 @@ function PackingList(){
 }
 
 function Stats(){
-  return <footer> You have X items on your list and already packed X %</footer>
+  return <footer> <em>You have X items on your list and already packed X % </em> </footer>
 }
 
 export default App
