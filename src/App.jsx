@@ -32,9 +32,19 @@ function Logo(){
 }
 
 function PackingList(){
-  return <div className='list'> List </div>
-}
 
+  return (
+  <div className='list'>
+   <ul> 
+  {initialItems.map((item)=> (<Item item={item} />
+  ))} 
+  </ul>
+</div>
+  );}
+function Item({item}){
+  return <li>{item.description}</li>
+
+}
 function Stats(){
   return <footer className='stats'> <em>You have X items on your list and already packed X % </em> </footer>
 }
