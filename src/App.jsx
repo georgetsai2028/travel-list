@@ -22,9 +22,19 @@ function App() {
 
 function Form(){
   return (
-    <div className = "add-form">
+    <form className = "add-form">
       <h3>What do you need to bring? 🧳 </h3>
-    </div>
+      <select>
+        {Array.from({length: 20}, (_, i) => i + 1).map
+        ((num) => (
+          <option value={num} key={num}>
+            {num}
+          </option>
+        ))}
+      </select>
+      <input type ="text" placeholder='item'></input>
+      <burron>Add</burron>
+    </form>
   )
 }
 
@@ -37,7 +47,8 @@ function PackingList(){
   return (
   <div className='list'>
    <ul> 
-  {initialItems.map((item)=> (<Item item={item} />
+  {initialItems.map((item)=> 
+  (<Item item={item} key={item.id} />
   ))} 
   </ul>
 </div>
