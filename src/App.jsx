@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 import './App.css'
 
 const initialItems = [
@@ -21,16 +21,25 @@ function App() {
 }
 
 function Form(){
+  const [description, setDescription] = useState("");
+  const [amount, setAmount] = useState(1);
 
   function handleSubmit(e){
     e.preventDefault();
+    if(!description) {return; }
+    
+    const newItem = {description, amount, packed: false, id: Date.now}
+    console.log(newItem);
+    //sets back to initial state
+    setDescription('');
+    setAmount(1);
   }
 
   
   return (
     <form className = "add-form" onSubmit={handleSubmit}>
       <h3>What do you need to bring? 🧳 </h3>
-      <select>
+      <select value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
         {Array.from({length: 20}, (_, i) => i + 1).map
         ((num) => (
           <option value={num} key={num}>
@@ -38,7 +47,7 @@ function Form(){
           </option>
         ))}
       </select>
-      <input type ="text" placeholder='item'></input>
+      <input type ="text" placeholder='item' value={description} onChange={(e) => setDescription(e.target.value)}></input>
       <burron>Add</burron>
     </form>
   )
