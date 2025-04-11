@@ -38,7 +38,7 @@ export default function FlashCard(){
     const [currentQuestion, setCurrentQuestion] = useState(null);
 
     function handleClick(id){
-        setCurrentQuestion(id);
+        setCurrentQuestion(id !== currentQuestion ? id : null);
     }
     return (
 
