@@ -1,3 +1,4 @@
+import './Flashcard.Css';
 
 const questions = [
     {
@@ -32,7 +33,13 @@ const questions = [
     }
 ]
 
-function FlashCard(){
-    return <div>MONEY</div>
+export default function FlashCard(){
+    return (
+    <div className="flashcards">
+        {questions.map((question)=> (
+            <div key={question.id}> <p>{question.question}</p></div>
+            ))}
+    </div>
+    )
 
 }
